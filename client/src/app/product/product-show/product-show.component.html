@@ -1,0 +1,37 @@
+<div class='container'>
+  <h2>Product Details</h2>
+
+  <div class='bg-danger'>{{ errors }}</div>
+
+
+  <div class="list-group">
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Product ID</h5>
+      </div>
+      <p class="mb-1">{{ product._id }}</p>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Product Name</h5>
+      </div>
+      <p class="mb-1">{{ product.name }}</p>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Product Price</h5>
+      </div>
+      <p class="mb-1">{{ product.price }}</p>
+    </div>
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Product Quantity</h5>
+      </div>
+      <p class="mb-1">{{ product.qty }}</p>
+    </div>
+  </div>
+
+  <a [routerLink]="['/']"><button class='btn-primary'>Back</button></a>
+  <button [disabled]='product.qty > 0' (click)='deleteProduct(product._id)' class='btn-danger'>Delete</button>
+
+</div>

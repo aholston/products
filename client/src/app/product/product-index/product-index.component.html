@@ -1,0 +1,29 @@
+<div class='container'>
+
+  <div class='bg-danger'>{{ errors }}</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of products'>
+        <th scope="row">{{ p._id }}</th>
+        <td>{{ p.name }}</td>
+        <td>{{ p.qty }}</td>
+        <td>{{ p.price }}</td>
+        <td>
+          <a [routerLink]="['product', p._id, 'edit']"><button class='btn-primary'>Edit</button></a>
+          <a [routerLink]="['product', p._id]"><button class='btn-success'>Details</button></a>
+          <button [disabled]='p.qty > 0' class='btn-danger' (click)='deleteProduct(p._id)'>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
